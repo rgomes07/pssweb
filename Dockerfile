@@ -1,6 +1,8 @@
+
+
 FROM debian:jessie 
 
-LABEL Container portal/pss, redes@seduc.pa.gov.br
+LABEL Container portal/pss, redes@portal.pa.gov.br
 RUN mkdir -p /usr/local/src/zend-loader-php5.6-linux-x86_64/
 COPY /pacotes/zendGuardLoader.so /usr/local/src/zend-loader-php5.6-linux-x86_64/
 COPY /pacotes/opcache.so /usr/local/src/zend-loader-php5.6-linux-x86_64/
@@ -44,3 +46,4 @@ COPY info.php /var/www/html/
 EXPOSE 80
 EXPOSE 443
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
