@@ -2,7 +2,6 @@
 
 FROM debian:jessie 
 
-LABEL Container portal/pss, redes@portal.pa.gov.br
 RUN mkdir -p /usr/local/src/zend-loader-php5.6-linux-x86_64/
 COPY /pacotes/zendGuardLoader.so /usr/local/src/zend-loader-php5.6-linux-x86_64/
 COPY /pacotes/opcache.so /usr/local/src/zend-loader-php5.6-linux-x86_64/
@@ -26,10 +25,7 @@ libmcrypt-dev \
 libmcrypt4 \
 mcrypt \
 php5-pgsql \
-build-essential && apt-get clean
-
-RUN a2enmod rewrite
-RUN a2enmod php5
+build-essential && apt-get clean ; a2enmod rewrite ; a2enmod php5
 
 ENV APACHE_LOCK_DIR="/var/lock"
 ENV APACHE_PID_FILE="/var/run/apache2.pid"
